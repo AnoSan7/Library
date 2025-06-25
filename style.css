@@ -1,3 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+#table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+#newBook{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    justify-self: center;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #49d94e;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+#newBook:hover{
+    background-color: #85e38a;
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#newBook:active{
+    background-color: #3cbf3c;
+    transform: translateY(2px) translateX(2px);
+}
+#dialog{
+    align-self: center;
+    justify-self: center;
+    padding: 32px 16px;
+    border: none;
+    border-radius: 20px;
+    transition: transform 0.2s ease,opacity 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#dialog form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+#dialog input{
+    width: 100%;
+    /* padding: 8px; */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding-left: 6px;;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1rem;
+}
+#dialog button{
+    width: 4rem;
+    align-self: center;
+    margin-top:1rem;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fdf62b;
+}
+#dialog button:hover{
+    background-color: #fdf62b;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+#dialog button:active{
+    background-color: #fdf62b;
+    transform: translateY(-1px);
+}
 ::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
+}
+#dialog[open] {
+    animation: dialog-pop-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes dialog-pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(40px);
+    }
+    80% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
