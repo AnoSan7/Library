@@ -1,11 +1,16 @@
 let books=[];
 let table=document.querySelector("#table");
-function book(bookName,author,pages){
-    this.id=crypto.randomUUID()
-    this.bookName=bookName;
-    this.author=author;
-    this.pages=pages;
-    this.readStatus=false;
+class book{
+    constructor(bookName,author,pages){
+        this.id=crypto.randomUUID();
+        this.bookName=bookName;
+        this.author=author;
+        this.pages=pages;
+        this.readStatus=false;
+    }
+    toggleRead() {
+        this.readStatus = !this.readStatus;
+    }
 }
 function addBook(bookName,author,pages){
     let newBook=new book(bookName,author,pages);
@@ -44,10 +49,12 @@ form.addEventListener("submit",(e)=>{
         let readBtn=document.createElement("button");
         readBtn.textContent="Read";
         readBtn.addEventListener("click",()=>{
-            if(readStatus.textContent === "❌"){
-                readStatus.textContent = "✅";
-                bookObj.readStatus = true;
-                readBtn.disabled = true;
+            bookObj.toggleRead();
+            if(bookObj.readStatus){
+                readStatus.textContent="✅";
+            }
+            else {
+                readStatus.textContent="❌";
             }
         });
         btn1.appendChild(readBtn);
