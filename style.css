@@ -90,6 +90,12 @@ th, td {
 #dialog[open] {
     animation: dialog-pop-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
+td button{
+    padding: 4px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
 
 @keyframes dialog-pop-in {
     0% {
@@ -103,5 +109,10 @@ th, td {
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
+    }
+}
+@media (max-width: 600px) {
+    #table{
+        font-size: 0.7rem;
     }
 }
