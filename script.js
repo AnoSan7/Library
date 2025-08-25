@@ -47,6 +47,7 @@ form.addEventListener("submit",(e)=>{
         row.appendChild(readStatus);
         let btn1=document.createElement("td");
         let readBtn=document.createElement("button");
+        readBtn.style.backgroundColor="green";
         readBtn.textContent="Read";
         readBtn.addEventListener("click",()=>{
             bookObj.toggleRead();
@@ -61,6 +62,7 @@ form.addEventListener("submit",(e)=>{
         row.appendChild(btn1);
         let btn2=document.createElement("td");
         let deleteBtn=document.createElement("button");
+        deleteBtn.style.backgroundColor="red";
         deleteBtn.textContent="Delete";
         deleteBtn.addEventListener("click",()=>{
             row.remove();
