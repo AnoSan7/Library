@@ -16,10 +16,15 @@ function saveBooks(){
     localStorage.setItem('books',JSON.stringify(books));
 }
 function loadBooks(){
-    const booksData=localStorage.getItem('books');
-    if(booksData){
-        books=JSON.parse(booksData);
-        books.forEach(bookObj=>addBookRow(bookObj));
+    const booksData = localStorage.getItem('books');
+    if (booksData) {
+        books = JSON.parse(booksData).map(obj => {
+            let b = new book(obj.bookName, obj.author, obj.pages);
+            b.id = obj.id;
+            b.readStatus = obj.readStatus;
+            return b;
+        });
+        books.forEach(bookObj => addBookRow(bookObj));
     }
 }
 loadBooks();
@@ -37,7 +42,7 @@ function addBookRow(bookObj){
         }
     }
     let readStatus=document.createElement("td");
-    readStatus.textContent="❌";
+    bookObj.readStatus ? readStatus.textContent="✅" : readStatus.textContent="❌";
     row.appendChild(readStatus);
     let btn1=document.createElement("td");
     let readBtn=document.createElement("button");
